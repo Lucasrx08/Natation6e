@@ -1,4 +1,4 @@
-const CACHE_NAME = "natation-6e-github-flat-v11";
+const CACHE_NAME = "natation-6e-github-flat-v12";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -8,10 +8,10 @@ const APP_SHELL = [
   "./natation-swimmers.png",
   "./og.png",
   "./framework-DjPHiq1u.js",
-  "./index-BISnN1vi.js",
-  "./index-DJG98ZEW.css",
-  "./layout-segment-context-DAsAJVqo.js",
-  "./natation-app-CDlwaHVh.js",
+  "./index-ghYT_8t7.js",
+  "./index-x_1aGchH.css",
+  "./layout-segment-context-D93VpWEY.js",
+  "./natation-app-CIyftveV.js",
   "./rolldown-runtime-S-ySWqyJ.js",
   "./action-01-chute.png",
   "./action-02-approche.png",
