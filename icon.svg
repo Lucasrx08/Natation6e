@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="64" y1="40" x2="462" y2="476" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#071f3b"/>
+      <stop offset=".58" stop-color="#135ba4"/>
+      <stop offset="1" stop-color="#25d1f4"/>
+    </linearGradient>
+    <linearGradient id="lane" x1="78" y1="0" x2="438" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff5f6d"/>
+      <stop offset=".5" stop-color="#ff8b68"/>
+      <stop offset="1" stop-color="#ff5f6d"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="126" fill="url(#bg)"/>
+  <circle cx="394" cy="112" r="78" fill="#25d1f4" opacity=".24"/>
+  <path d="M67 281c46-38 91-38 137 0s91 38 137 0 91-38 137 0" fill="none" stroke="#fff" stroke-width="31" stroke-linecap="round"/>
+  <path d="M67 362c46-38 91-38 137 0s91 38 137 0 91-38 137 0" fill="none" stroke="#8cf2ff" stroke-width="21" stroke-linecap="round"/>
+  <path d="M81 211h350" stroke="url(#lane)" stroke-width="18" stroke-linecap="round" stroke-dasharray="48 20"/>
+  <circle cx="109" cy="122" r="38" fill="#ff5f6d"/>
+  <text x="256" y="165" fill="#fff" font-family="Arial, sans-serif" font-size="96" font-weight="900" text-anchor="middle" letter-spacing="-7">6e</text>
+</svg>

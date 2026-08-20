@@ -1,0 +1,19 @@
+{
+  "name": "Natation 6e",
+  "short_name": "Natation 6e",
+  "description": "Évaluation EPS du savoir-nager en sécurité",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#f2f8fc",
+  "theme_color": "#071f3b",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
