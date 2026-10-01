@@ -1,4 +1,4 @@
-const CACHE_NAME = "natation-6e-stable-original-20261001";
+const CACHE_NAME = "natation-6e-cycle-v12-20261001";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -8,10 +8,11 @@ const APP_SHELL = [
   "./natation-swimmers.png",
   "./og.png",
   "./framework-DjPHiq1u.js",
-  "./index-D4hlIz0I.js",
+  "./index-cycle-v12.js",
   "./index-x_1aGchH.css",
-  "./layout-segment-context-8_d4cTOB.js",
-  "./natation-app-D2tJI9wO.js",
+  "./cycle-v12.css",
+  "./layout-cycle-v12.js",
+  "./natation-cycle-v12.js",
   "./rolldown-runtime-S-ySWqyJ.js",
   "./action-01-chute.png",
   "./action-02-approche.png",
@@ -33,7 +34,7 @@ self.addEventListener("install", (event) => {
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
-      Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))),
+      Promise.all(keys.filter((key) => key.startsWith("natation-6e-") && key !== CACHE_NAME).map((key) => caches.delete(key))),
     ),
   );
   self.clients.claim();
