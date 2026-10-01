@@ -1,4 +1,4 @@
-const CACHE_NAME = "natation-6e-github-flat-v13";
+const CACHE_NAME = "natation-6e-stable-original-20261001";
 const APP_SHELL = [
   "./",
   "./index.html",
