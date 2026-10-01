@@ -1,4 +1,4 @@
-const CACHE_NAME = "natation-6e-cycle-v13-20261001";
+const CACHE_NAME = "natation-6e-cycle-v14-20261001";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -8,11 +8,11 @@ const APP_SHELL = [
   "./natation-swimmers.png",
   "./og.png",
   "./framework-DjPHiq1u.js",
-  "./index-cycle-v13.js",
+  "./index-cycle-v14.js",
   "./index-x_1aGchH.css",
-  "./cycle-v13.css",
-  "./layout-cycle-v13.js",
-  "./natation-cycle-v13.js",
+  "./cycle-v14.css",
+  "./layout-cycle-v14.js",
+  "./natation-cycle-v14.js",
   "./rolldown-runtime-S-ySWqyJ.js",
   "./action-01-chute.png",
   "./action-02-approche.png",
