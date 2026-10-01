@@ -5,7 +5,7 @@ from reportlab.lib.colors import HexColor
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.utils import ImageReader,simpleSplit
-root=Path(__file__).resolve().parent.parent;x=(root/'natation-cycle-v14.js').read_text();literal=x[x.index('const WORKSHOPS=')+len('const WORKSHOPS='):x.index('const LEARNING_STATES=')].strip().rstrip(';');mods=json.loads(subprocess.check_output(['node','-e','console.log(JSON.stringify('+literal+'))']))
+root=Path(__file__).resolve().parent.parent;x=(root/'natation-cycle-v15.js').read_text();literal=x[x.index('const WORKSHOPS=')+len('const WORKSHOPS='):x.index('const LEARNING_STATES=')].strip().rstrip(';');mods=json.loads(subprocess.check_output(['node','-e','console.log(JSON.stringify('+literal+'))']))
 for name,f in [('D','DejaVuSans.ttf'),('DB','DejaVuSans-Bold.ttf')]:pdfmetrics.registerFont(TTFont(name,'/usr/share/fonts/truetype/dejavu/'+f))
 
 def demonstration(c,left,top,cw,kind):
@@ -45,6 +45,7 @@ def demonstration(c,left,top,cw,kind):
 
 W,H=841.89,595.28
 for m in mods:
+ if m["id"]=="floating":continue # Use generate-flottaison.py for the five-level workshop.
  c=canvas.Canvas(str(root/'fiches'/f'{m["id"]}.pdf'),pagesize=(W,H));c.setTitle('Natation • '+m['title']);c.setAuthor('L. Rigaux • Natation 6e');c.setFillColor(HexColor('#edf8fc'));c.rect(0,0,W,H,fill=1,stroke=0)
  c.setFillColor(HexColor('#0d3553'));c.roundRect(20,H-106,W-40,86,19,fill=1,stroke=0);c.setFillColor(HexColor('#74e6f1'));c.setFont('DB',10);c.drawString(40,H-43,'NATATION 6e  /  POUVOIRS AQUATIQUES');c.setFillColor(HexColor('#ffffff'));c.setFont('DB',25);c.drawString(40,H-75,m['title']);c.setFont('D',9);c.drawRightString(W-40,H-47,'DÉCOUVERTE → PROGRESSION → MAÎTRISE');c.drawRightString(W-40,H-68,'4 PALIERS • À TOI DE PROGRESSER')
  for i,level in enumerate(m['levels']):
