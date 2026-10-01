@@ -2,12 +2,13 @@ from pathlib import Path
 import subprocess,json,io
 import fitz
 from reportlab.pdfgen import canvas
+from PIL import Image
 from reportlab.lib.colors import HexColor
 from reportlab.lib.utils import ImageReader,simpleSplit
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 root=Path(__file__).resolve().parent.parent
-x=(root/'natation-cycle-v15.js').read_text();literal=x[x.index('const WORKSHOPS=')+len('const WORKSHOPS='):x.index('const LEARNING_STATES=')].strip().rstrip(';');m=json.loads(subprocess.check_output(['node','-e','console.log(JSON.stringify('+literal+'))']))[0]
+x=(root/'natation-cycle-v16.js').read_text();literal=x[x.index('const WORKSHOPS=')+len('const WORKSHOPS='):x.index('const LEARNING_STATES=')].strip().rstrip(';');m=json.loads(subprocess.check_output(['node','-e','console.log(JSON.stringify('+literal+'))']))[0]
 for name,f in [('D','DejaVuSans.ttf'),('DB','DejaVuSans-Bold.ttf')]:pdfmetrics.registerFont(TTFont(name,'/usr/share/fonts/truetype/dejavu/'+f))
 W,H=841.89,595.28
 c=canvas.Canvas(str(root/'fiches/floating.pdf'),pagesize=(W,H));c.setTitle('Flottaison • 5 niveaux');c.setAuthor('L. Rigaux • Natation 6e')
@@ -17,7 +18,9 @@ for i,level in enumerate(m['levels']):
  left=18+i*(cw+10);tone=['#e84368','#e84368','#d89216','#14a472','#14a472'][i];bg=['#fff0f4','#fff0f4','#fff6e2','#e8fbf3','#e8fbf3'][i]
  c.setFillColor(HexColor('#c9e0e9'));c.roundRect(left,bottom-4,cw,top-bottom,12,fill=1,stroke=0);c.setFillColor(HexColor('#ffffff'));c.setStrokeColor(HexColor(tone));c.setLineWidth(1.4);c.roundRect(left,bottom,cw,top-bottom,12,fill=1,stroke=1)
  c.setFillColor(HexColor(tone));c.circle(left+22,top-23,13,fill=1,stroke=0);c.setFillColor(HexColor('#ffffff'));c.setFont('DB',12);c.drawCentredString(left+22,top-27,str(i+1));c.setFillColor(HexColor('#103954'));c.setFont('DB',9);c.drawString(left+42,top-19,'NIVEAU '+str(i+1));c.setFont('D',7);c.drawString(left+42,top-32,['Découverte','Découverte','Progression','Maîtrise','Maîtrise'][i])
- svg=fitz.open(str(root/m['levelImages'][i].removeprefix('./')));pix=svg.get_page_pixmap(0,matrix=fitz.Matrix(2,2));c.drawImage(ImageReader(io.BytesIO(pix.tobytes('png'))),left+5,top-151,cw-10,105,preserveAspectRatio=True,anchor='c',mask='auto');svg.close()
+ # Prepare only the PDF print stream at 300+ dpi; keep source project assets unchanged.
+ source=Image.open(root/m['levelImages'][i].removeprefix('./')).convert('RGBA');source.thumbnail((720,720),Image.Resampling.LANCZOS);paper=Image.new('RGB',source.size,'white');paper.paste(source,mask=source.getchannel('A'));stream=io.BytesIO();paper.save(stream,format='JPEG',quality=94,optimize=True);stream.seek(0)
+ c.drawImage(ImageReader(stream),left+5,top-151,cw-10,105,preserveAspectRatio=True,anchor='c')
  yy=top-171;c.setFont('DB',10)
  for line in simpleSplit(level[0],'DB',10,cw-18):c.drawString(left+9,yy,line);yy-=12
  yy=top-208;c.setFont('DB',7);c.setFillColor(HexColor('#557286'));c.drawString(left+9,yy,'MA CONSIGNE');yy-=13;c.setFillColor(HexColor('#163c54'));c.setFont('D',7.6)
