@@ -1,4 +1,4 @@
-const CACHE_NAME = "natation-6e-cycle-v12-20261001";
+const CACHE_NAME = "natation-6e-cycle-v13-20261001";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -8,11 +8,11 @@ const APP_SHELL = [
   "./natation-swimmers.png",
   "./og.png",
   "./framework-DjPHiq1u.js",
-  "./index-cycle-v12.js",
+  "./index-cycle-v13.js",
   "./index-x_1aGchH.css",
-  "./cycle-v12.css",
-  "./layout-cycle-v12.js",
-  "./natation-cycle-v12.js",
+  "./cycle-v13.css",
+  "./layout-cycle-v13.js",
+  "./natation-cycle-v13.js",
   "./rolldown-runtime-S-ySWqyJ.js",
   "./action-01-chute.png",
   "./action-02-approche.png",
@@ -23,7 +23,10 @@ const APP_SHELL = [
   "./action-08-flottaison.png",
   "./action-09-obstacle-retour.png",
   "./action-10-retour.png",
-  "./action-11-ancrage.png"
+  "./action-11-ancrage.png",
+  "./fiches/floating.pdf",
+  "./fiches/immersion.pdf",
+  "./fiches/entry.pdf"
 ];
 
 self.addEventListener("install", (event) => {
