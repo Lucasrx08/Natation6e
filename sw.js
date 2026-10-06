@@ -1,4 +1,4 @@
-const CACHE_NAME = "natation-6e-cycle-v17-20261005";
+const CACHE_NAME = "natation-6e-cycle-v18-20261006";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -8,11 +8,11 @@ const APP_SHELL = [
   "./natation-swimmers.png",
   "./og.png",
   "./framework-DjPHiq1u.js",
-  "./index-cycle-v17.js",
+  "./index-cycle-v18.js",
   "./index-x_1aGchH.css",
-  "./cycle-v17.css",
-  "./layout-cycle-v17.js",
-  "./natation-cycle-v17.js",
+  "./cycle-v18.css",
+  "./layout-cycle-v18.js",
+  "./natation-cycle-v18.js",
   "./rolldown-runtime-S-ySWqyJ.js",
   "./action-01-chute.png",
   "./action-02-approche.png",
@@ -31,6 +31,11 @@ const APP_SHELL = [
   "./ateliers/flottaison-3d-4.png",
   "./ateliers/flottaison-3d-5.png",
 
+    "./ateliers/immersion-face-v18.png",
+  "./ateliers/immersion-head-v18.png",
+  "./ateliers/entry-ladder-v18.png",
+  "./ateliers/entry-jump-v18.png",
+  "./ateliers/entry-sit-v18.png",
   "./fiches/immersion.pdf",
   "./fiches/entry.pdf"
 ];
