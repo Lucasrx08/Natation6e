@@ -1,4 +1,4 @@
-const CACHE_NAME = "natation-6e-cycle-v18-20261006";
+const CACHE_NAME = "natation-6e-cycle-v19-20261022";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -8,11 +8,12 @@ const APP_SHELL = [
   "./natation-swimmers.png",
   "./og.png",
   "./framework-DjPHiq1u.js",
-  "./index-cycle-v18.js",
+  "./index-cycle-v19.js",
   "./index-x_1aGchH.css",
-  "./cycle-v18.css",
-  "./layout-cycle-v18.js",
-  "./natation-cycle-v18.js",
+  "./cycle-v19.css",
+  "./layout-cycle-v19.js",
+  "./natation-cycle-v19.js",
+  "./workshops-v19.js",
   "./rolldown-runtime-S-ySWqyJ.js",
   "./action-01-chute.png",
   "./action-02-approche.png",
@@ -37,6 +38,16 @@ const APP_SHELL = [
   "./ateliers/entry-jump-v18.png",
   "./ateliers/entry-sit-v18.png",
   "./fiches/immersion.pdf",
+    "./ateliers/immersion-bar-wall-v19.png",
+  "./ateliers/immersion-mat-wall-v19.png",
+  "./ateliers/immersion-bar-free-v19.png",
+  "./ateliers/immersion-object-v19.png",
+  "./ateliers/entry-material-v19.png",
+  "./ateliers/entry-tuck-v19.png",
+  "./ateliers/entry-bottle-v19.png",
+  "./ateliers/entry-dive-seated-v19.png",
+  "./ateliers/entry-dive-standing-v19.png",
+  "./ateliers/entry-dive-block-v19.png",
   "./fiches/entry.pdf"
 ];
 

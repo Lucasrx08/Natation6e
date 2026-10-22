@@ -1,0 +1,51 @@
+{
+  "mode": "built-in image_gen",
+  "reference": "ateliers/flottaison-3d-5.png",
+  "commonPrompt": "Use case: scientific-educational. Polished realistic 3D swimming sprite matching the reference, red cap, blue goggles, blue/cyan shorts, natural anatomy, essential water and equipment only, full body with margins, genuinely transparent background, no text or arrows.",
+  "poses": [
+    {
+      "asset": "ateliers/immersion-bar-wall-v19.png",
+      "pose": "In a deep swimming pool where the feet do not touch the bottom, the swimmer grips the pool wall edge with BOTH HANDS, bends forward and passes his head and shoulders UNDER one thin horizontal floating training bar perpendicular to that wall. His head and cap are fully underwater, arms keep contact with wall; knees bent and feet suspended. Clearly distinguish the narrow bar from a wide mat. Show the bar bright yellow with blue ends and just a small white pool wall segment."
+    },
+    {
+      "asset": "ateliers/immersion-mat-wall-v19.png",
+      "pose": "In a deep swimming pool with NO foot support, swimmer grips the pool wall edge with BOTH HANDS and swims alongside that wall UNDER a thick blue/yellow floating rectangular MAT. Entire head under the mat, arms reach to wall, feet suspended behind. Show the wide mat and short white pool wall section clearly in side perspective."
+    },
+    {
+      "asset": "ateliers/immersion-bar-free-v19.png",
+      "pose": "Swimmer completely underwater passes under a narrow straight yellow floating training BAR with blue ends; body horizontal face down, arms extended ahead, feet free, NO wall grip, NO equipment supporting swimmer. The bar is narrow rather than a wide rectangular mat. Small turquoise water surface above bar, no pool floor."
+    },
+    {
+      "asset": "ateliers/immersion-object-v19.png",
+      "pose": "Swimmer performing a controlled duck dive, hips high and legs straight upward, torso pointing down, one hand reaching for a small sinking red ring on a deep pool floor well below the water surface. Swimmer fully underwater with no wall or ladder support. Show entire body and small tile patch under the ring, clear side view, no depth text, no ruler, no breath-holding timer."
+    },
+    {
+      "asset": "ateliers/entry-material-v19.png",
+      "pose": "Swimmer entering pool feet first in upright position, HOLDING a yellow foam noodle firmly with both hands across the upper chest. Feet together and lowest, body vertical, small splash at feet just reaching water. Small white pool edge to one side. No headfirst dive."
+    },
+    {
+      "asset": "ateliers/entry-tuck-v19.png",
+      "pose": "Swimmer in a tight compact tucked ball at low swimming pool edge, crouching with BOTH ARMS wrapped around shins just below knees, knees touching chest, chin tucked to chest. Body starts tipping BACKWARDS into water while remaining tightly grouped, heels near edge. Clear readable side view with water BEHIND the back. Entire swimmer visible; no arms spread, no straight legs."
+    },
+    {
+      "asset": "ateliers/entry-bottle-v19.png",
+      "pose": "Swimmer beginning an upright backward fall into pool from standing at edge, body STRAIGHT like a bottle: legs together aligned with torso, feet at edge, arms crossed snugly over chest, whole rigid body tilted backward only about 25 degrees over water. Feet remain lowest, back toward water, NO headfirst entry. Clear side view, low white pool edge, generous space around body."
+    },
+    {
+      "asset": "ateliers/entry-dive-seated-v19.png",
+      "pose": "Swimmer performing the start of a SEATED headfirst dive from low pool edge, hips on edge, knees bent with feet braced against wall ready to push. BOTH ARMS straight extended forward beside ears, hands together in front of head and leading the movement, chin tucked toward chest between arms. Torso leans forward/down toward deep open water. Side view, full body visible, no standing pose."
+    },
+    {
+      "asset": "ateliers/entry-dive-standing-v19.png",
+      "pose": "Swimmer starting a controlled headfirst dive from STANDING on LOW POOL EDGE, both feet at edge pushing from legs, streamlined body leaning diagonally down over deep open water, BOTH ARMS straight beside ears, head between upper arms, hands together leading ahead of head, chin tucked toward chest. No starting block. Full swimmer and small edge in side view, no shallow pool floor."
+    },
+    {
+      "asset": "ateliers/entry-dive-block-v19.png",
+      "pose": "Swimmer launching a streamlined headfirst dive from an elevated swimming STARTING BLOCK over deep open water. Legs extend behind after push, both arms straight beside ears, head tucked between arms, hands together leading entry ahead of head. Clear full body diagonal airborne phase and small white/blue starting block visible behind feet. Side view with water patch below, no shallow floor."
+    }
+  ],
+  "edit": {
+    "asset": "ateliers/entry-tuck-v19.png",
+    "instruction": "Keep arms around knees and tuck chin to chest, add margin above cap."
+  }
+}
