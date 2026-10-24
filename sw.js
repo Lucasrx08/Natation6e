@@ -1,4 +1,4 @@
-const CACHE_NAME = "natation-6e-cycle-v22-20261024";
+const CACHE_NAME = "natation-6e-cycle-v23-20261024";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -8,14 +8,21 @@ const APP_SHELL = [
   "./natation-swimmers.png",
   "./og.png",
   "./framework-DjPHiq1u.js",
-  "./index-cycle-v22.js",
+  "./index-cycle-v23.js",
   "./index-x_1aGchH.css",
-  "./cycle-v22.css",
-  "./layout-cycle-v22.js",
-  "./natation-cycle-v22.js",
-  "./workshops-v19.js",
-  "./cycle-features-v22.js",
-  "./cycle-model-v22.js",
+  "./cycle-v23.css",
+  "./layout-cycle-v23.js",
+  "./natation-cycle-v23.js",
+  "./workshops-v23.js",
+  "./aquatic-model-v23.js",
+  "./aquatic-v23.js",
+  "./assets/v23/backward-jump.png",
+  "./assets/v23/weighted-hoop.png",
+  "./media/parcours-aquatique-v23.mp4",
+  "./media/parcours-aquatique-v23.jpg",
+  "./media/parcours-aquatique-v23.vtt",
+  "./cycle-features-v23.js",
+  "./cycle-model-v23.js",
   "./swimmer-portraits-v22.js",
   "./assets/v22/swimmer-male.png",
   "./assets/v22/swimmer-female.png",
@@ -24,7 +31,6 @@ const APP_SHELL = [
   "./assets/v22/exempt.svg",
   "./assets/v22/kit.svg",
   "./rolldown-runtime-S-ySWqyJ.js",
-  "./action-01-chute.png",
   "./action-02-approche.png",
   "./action-03-obstacle.png",
   "./action-04-ventrale.png",
@@ -52,15 +58,14 @@ const APP_SHELL = [
   "./ateliers/immersion-object-v19.png",
   "./ateliers/entry-material-v19.png",
   "./ateliers/entry-tuck-v19.png",
-  "./ateliers/entry-bottle-v19.png",
   "./ateliers/entry-dive-seated-v19.png",
   "./ateliers/entry-dive-standing-v19.png",
   "./ateliers/entry-dive-block-v19.png",
   "./fiches/entry.pdf",
-  "./cycle-documents-v22.js",
-  "./fiches/floating.pdf?v=22",
-  "./fiches/immersion.pdf?v=22",
-  "./fiches/entry.pdf?v=22",
+  "./cycle-documents-v23.js",
+  "./fiches/floating.pdf?v=23",
+  "./fiches/immersion.pdf?v=23",
+  "./fiches/entry.pdf?v=23",
   "./vendor/pdf-lib-1.17.1.min.mjs",
   "./vendor/fontkit-1.1.1.min.js",
   "./vendor/LICENSE-fontkit",
@@ -118,6 +123,20 @@ self.addEventListener("fetch", (event) => {
 
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
+
+  // Native video players issue Range requests when seeking, including offline.
+  if (url.pathname.endsWith("/media/parcours-aquatique-v23.mp4") && request.headers.has("range")) {
+    event.respondWith((async () => {
+      const cached = await caches.match(url.href);
+      if (!cached) return fetch(request);
+      const bytes = await cached.arrayBuffer(), range = /^bytes=(\d*)-(\d*)$/.exec(request.headers.get("range") || "");
+      if (!range) return new Response(null, {status:416,headers:{"Content-Range":`bytes */${bytes.byteLength}`}});
+      const start = range[1] ? Number(range[1]) : Math.max(0,bytes.byteLength-Number(range[2])), end = range[1] && range[2] ? Math.min(Number(range[2]),bytes.byteLength-1) : bytes.byteLength-1;
+      if (!Number.isSafeInteger(start) || !Number.isSafeInteger(end) || start > end || start >= bytes.byteLength) return new Response(null, {status:416,headers:{"Content-Range":`bytes */${bytes.byteLength}`}});
+      return new Response(bytes.slice(start,end+1),{status:206,headers:{"Content-Type":"video/mp4","Content-Length":String(end-start+1),"Content-Range":`bytes ${start}-${end}/${bytes.byteLength}`,"Accept-Ranges":"bytes"}});
+    })());
+    return;
+  }
 
   if (request.mode === "navigate") {
     event.respondWith(
