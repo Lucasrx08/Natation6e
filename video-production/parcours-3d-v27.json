@@ -1,0 +1,155 @@
+{
+  "status": "awaiting_video_generator_connection",
+  "format": "16:9",
+  "target_duration_seconds": 108,
+  "reference": {
+    "filename": "Swimmer_entering_water_backward_20261024114106.mp4",
+    "duration_seconds": 8,
+    "resolution": [
+      1280,
+      720
+    ],
+    "purpose": "Character/rendering/water style only; its crossed-arm entry must not be copied."
+  },
+  "output": {
+    "minimum_native_resolution": [
+      1920,
+      1080
+    ],
+    "fps": 24,
+    "container": "mp4",
+    "video_codec": "h264",
+    "fake_4k_upscale": false
+  },
+  "continuity": "Educational 3D animated swimming tutorial in a realistic indoor school swimming pool, matching the supplied video’s polished stylized 3D swimmer and realistic water. Same school-aged swimmer throughout: red swimming cap, blue goggles, blue swim shorts with cyan side panels. Eye-level three-quarter camera, stable composition, bright natural pool lighting, physically coherent continuous motion. Non-sexual sports instruction. No generated writing, no logo, no numbers, no unrelated people, no cuts within the action. Maintain the same character, pool geometry and camera side between shots. ",
+  "intro": {
+    "start": 0,
+    "end": 5,
+    "action": "Wide view of the complete pool route."
+  },
+  "shots": [
+    {
+      "id": "entry",
+      "start": 5,
+      "end": 12,
+      "duration": 7,
+      "label": "Chute arrière",
+      "caption_fr": "Je pousse avec mes jambes et je saute en arrière, bras le long du corps, pieds en premier.",
+      "image_reference": "./assets/v23/backward-jump.png",
+      "prompt": "Educational 3D animated swimming tutorial in a realistic indoor school swimming pool, matching the supplied video’s polished stylized 3D swimmer and realistic water. Same school-aged swimmer throughout: red swimming cap, blue goggles, blue swim shorts with cyan side panels. Eye-level three-quarter camera, stable composition, bright natural pool lighting, physically coherent continuous motion. Non-sexual sports instruction. No generated writing, no logo, no numbers, no unrelated people, no cuts within the action. Maintain the same character, pool geometry and camera side between shots. Start with the swimmer upright on the pool edge with their back toward the water. Both arms stay straight down alongside the torso and thighs. The swimmer bends the knees slightly, actively pushes off with both feet and jumps BACKWARD away from the edge while staying upright. Feet enter the water first, body vertical. The head stays neutral. The swimmer resurfaces calmly, breathing freely. Never fold or cross the arms over the chest; never lean backward as a rigid plank; never land flat on the back, somersault, dive head first or pinch the nose."
+    },
+    {
+      "id": "outward",
+      "start": 12,
+      "end": 24,
+      "duration": 12,
+      "label": "Immersion aller",
+      "caption_fr": "Je nage sur le ventre, puis je passe sous le tapis OU dans le cerceau lesté.",
+      "image_reference": "./action-03-obstacle.png",
+      "prompt": "Educational 3D animated swimming tutorial in a realistic indoor school swimming pool, matching the supplied video’s polished stylized 3D swimmer and realistic water. Same school-aged swimmer throughout: red swimming cap, blue goggles, blue swim shorts with cyan side panels. Eye-level three-quarter camera, stable composition, bright natural pool lighting, physically coherent continuous motion. Non-sexual sports instruction. No generated writing, no logo, no numbers, no unrelated people, no cuts within the action. Maintain the same character, pool geometry and camera side between shots. The swimmer moves forward prone with the face in the water, then submerges fully to pass an obstacle. Generate two separate alternatives with matching direction and camera: A, completely beneath a blue-and-yellow floating mat without touching it; B, completely through a submerged weighted hoop. Each take contains just ONE obstacle, not both. Show clear water above and below the swimmer so the actual submerged passage is visible. The swimmer emerges beyond the obstacle and breathes calmly.",
+      "alternatives": [
+        "mat",
+        "weighted-hoop"
+      ],
+      "overlay_fr": "Au choix : tapis OU cerceau. Un seul passage."
+    },
+    {
+      "id": "upright",
+      "start": 24,
+      "end": 39,
+      "duration": 15,
+      "label": "Flottaison debout",
+      "caption_fr": "Je reste debout dans l’eau pendant 15 secondes, sans toucher le fond.",
+      "image_reference": "./ateliers/flottaison-3d-4.png",
+      "prompt": "Educational 3D animated swimming tutorial in a realistic indoor school swimming pool, matching the supplied video’s polished stylized 3D swimmer and realistic water. Same school-aged swimmer throughout: red swimming cap, blue goggles, blue swim shorts with cyan side panels. Eye-level three-quarter camera, stable composition, bright natural pool lighting, physically coherent continuous motion. Non-sexual sports instruction. No generated writing, no logo, no numbers, no unrelated people, no cuts within the action. Maintain the same character, pool geometry and camera side between shots. The swimmer stops forward travel and treads water upright for fifteen real seconds, no contact with the floor or edge. Neck remains above the surface and breathing stays free, with gentle continuous sculling and small supporting leg movements. Body remains in one place. Do not show a frozen statue or repeated entry into the water.",
+      "real_time_hold_seconds": 15
+    },
+    {
+      "id": "front",
+      "start": 39,
+      "end": 44,
+      "duration": 5,
+      "label": "Reprise de la nage ventrale",
+      "caption_fr": "Je repars sur le ventre jusqu’au demi-tour.",
+      "image_reference": "./action-04-ventrale.png",
+      "prompt": "Educational 3D animated swimming tutorial in a realistic indoor school swimming pool, matching the supplied video’s polished stylized 3D swimmer and realistic water. Same school-aged swimmer throughout: red swimming cap, blue goggles, blue swim shorts with cyan side panels. Eye-level three-quarter camera, stable composition, bright natural pool lighting, physically coherent continuous motion. Non-sexual sports instruction. No generated writing, no logo, no numbers, no unrelated people, no cuts within the action. Maintain the same character, pool geometry and camera side between shots. The swimmer returns from upright treading to a horizontal prone position and resumes smooth front swimming forward. Body straight, head aligned, smooth coordinated arm and leg motion, without teleporting, sliding sideways or abruptly changing anatomy."
+    },
+    {
+      "id": "turn",
+      "start": 44,
+      "end": 50,
+      "duration": 6,
+      "label": "Demi-tour de 180°",
+      "caption_fr": "Je fais demi-tour sans toucher le fond, puis je m’oriente sur le dos.",
+      "image_reference": "./action-04-ventrale.png",
+      "prompt": "Educational 3D animated swimming tutorial in a realistic indoor school swimming pool, matching the supplied video’s polished stylized 3D swimmer and realistic water. Same school-aged swimmer throughout: red swimming cap, blue goggles, blue swim shorts with cyan side panels. Eye-level three-quarter camera, stable composition, bright natural pool lighting, physically coherent continuous motion. Non-sexual sports instruction. No generated writing, no logo, no numbers, no unrelated people, no cuts within the action. Maintain the same character, pool geometry and camera side between shots. The swimmer approaches the far end of the route and smoothly turns through 180 degrees in the water without touching the bottom or edge. Then rolls into a horizontal supine position, face upward, and departs in the opposite direction. Track the whole turn clearly in a single stable shot. Do not show a wall push-off or a competition tumble turn."
+    },
+    {
+      "id": "back",
+      "start": 50,
+      "end": 57,
+      "duration": 7,
+      "label": "Nage dorsale",
+      "caption_fr": "Je nage sur le dos jusqu’à la zone de flottaison.",
+      "image_reference": "./action-07-dorsale.png",
+      "prompt": "Educational 3D animated swimming tutorial in a realistic indoor school swimming pool, matching the supplied video’s polished stylized 3D swimmer and realistic water. Same school-aged swimmer throughout: red swimming cap, blue goggles, blue swim shorts with cyan side panels. Eye-level three-quarter camera, stable composition, bright natural pool lighting, physically coherent continuous motion. Non-sexual sports instruction. No generated writing, no logo, no numbers, no unrelated people, no cuts within the action. Maintain the same character, pool geometry and camera side between shots. The swimmer moves in the return direction on their back, body straight and horizontal at the surface, face and mouth above water, gentle flutter kick and coordinated arm motion. Camera stays on the same side of the pool so the direction of return remains clear."
+    },
+    {
+      "id": "star",
+      "start": 57,
+      "end": 72,
+      "duration": 15,
+      "label": "Étoile de mer dorsale",
+      "caption_fr": "Je fais l’étoile sur le dos pendant 15 secondes, avec une respiration calme.",
+      "image_reference": "./ateliers/flottaison-3d-5.png",
+      "prompt": "Educational 3D animated swimming tutorial in a realistic indoor school swimming pool, matching the supplied video’s polished stylized 3D swimmer and realistic water. Same school-aged swimmer throughout: red swimming cap, blue goggles, blue swim shorts with cyan side panels. Eye-level three-quarter camera, stable composition, bright natural pool lighting, physically coherent continuous motion. Non-sexual sports instruction. No generated writing, no logo, no numbers, no unrelated people, no cuts within the action. Maintain the same character, pool geometry and camera side between shots. The swimmer stops traveling and performs a back star float for fifteen real seconds. Arms and legs comfortably spread, body flat and parallel to the surface, mouth and toes above water. Calm visible breathing and subtle natural water motion. No sinking knees, standing up, floor contact or frozen frame.",
+      "real_time_hold_seconds": 15
+    },
+    {
+      "id": "return",
+      "start": 72,
+      "end": 85,
+      "duration": 13,
+      "label": "Immersion retour",
+      "caption_fr": "Je reprends la nage dorsale, puis je passe sous le tapis OU dans le cerceau lesté.",
+      "image_reference": "./action-09-obstacle-retour.png",
+      "prompt": "Educational 3D animated swimming tutorial in a realistic indoor school swimming pool, matching the supplied video’s polished stylized 3D swimmer and realistic water. Same school-aged swimmer throughout: red swimming cap, blue goggles, blue swim shorts with cyan side panels. Eye-level three-quarter camera, stable composition, bright natural pool lighting, physically coherent continuous motion. Non-sexual sports instruction. No generated writing, no logo, no numbers, no unrelated people, no cuts within the action. Maintain the same character, pool geometry and camera side between shots. The swimmer resumes back swimming in the return direction, rolls and submerges to pass an obstacle, then resurfaces. Generate two separate alternatives: A, completely beneath a blue-and-yellow floating mat without touching it; B, completely through a submerged weighted hoop. Each take contains ONE obstacle only. Keep the return direction opposite the outward passage. After emerging, resume a calm horizontal back position.",
+      "alternatives": [
+        "mat",
+        "weighted-hoop"
+      ],
+      "overlay_fr": "Au choix : tapis OU cerceau. Un seul passage."
+    },
+    {
+      "id": "ring",
+      "start": 85,
+      "end": 96,
+      "duration": 11,
+      "label": "Récupération de l’anneau",
+      "caption_fr": "Je repars sur le dos, puis je m’immerge pour récupérer l’anneau.",
+      "image_reference": "./ateliers/immersion-object-v19.png",
+      "prompt": "Educational 3D animated swimming tutorial in a realistic indoor school swimming pool, matching the supplied video’s polished stylized 3D swimmer and realistic water. Same school-aged swimmer throughout: red swimming cap, blue goggles, blue swim shorts with cyan side panels. Eye-level three-quarter camera, stable composition, bright natural pool lighting, physically coherent continuous motion. Non-sexual sports instruction. No generated writing, no logo, no numbers, no unrelated people, no cuts within the action. Maintain the same character, pool geometry and camera side between shots. After back swimming, the swimmer submerges to a visible weighted ring on the pool floor, grasps it with one hand and brings it back to the surface without pushing on the floor, wall or another object. Show the ring in the hand on resurfacing. No sudden jump cuts, missing ring, impossible limb changes or floor push-off."
+    },
+    {
+      "id": "anchor",
+      "start": 96,
+      "end": 103,
+      "duration": 7,
+      "label": "Rejoindre le bord",
+      "caption_fr": "Je rejoins le bord et je m’y accroche.",
+      "image_reference": "./action-11-ancrage.png",
+      "prompt": "Educational 3D animated swimming tutorial in a realistic indoor school swimming pool, matching the supplied video’s polished stylized 3D swimmer and realistic water. Same school-aged swimmer throughout: red swimming cap, blue goggles, blue swim shorts with cyan side panels. Eye-level three-quarter camera, stable composition, bright natural pool lighting, physically coherent continuous motion. Non-sexual sports instruction. No generated writing, no logo, no numbers, no unrelated people, no cuts within the action. Maintain the same character, pool geometry and camera side between shots. The swimmer calmly travels the final distance to the near pool edge, reaches it and holds it securely with both hands, with the head above water. Finish stationary at the edge, breathing calmly. Do not climb out or start another lap."
+    }
+  ],
+  "outro": {
+    "start": 103,
+    "end": 108,
+    "action": "Wide pool view, swimmer at the edge, course finished."
+  },
+  "postproduction": {
+    "labels": "French captions composited after generation; no generated text in footage.",
+    "holds": "15-second holds must use continuous natural motion, never frozen frames.",
+    "grading": "Front/back swimming, turn and edge hold remain journey-only in the existing assessment.",
+    "validation": "Review each complete take before publishing. Reject crossed arms in backward jump, flat-back impact, wrong directions, obstacle collisions and floor support."
+  }
+}
