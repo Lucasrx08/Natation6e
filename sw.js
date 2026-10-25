@@ -1,4 +1,4 @@
-const CACHE_NAME = "natation-6e-cycle-v25-20261025";
+const CACHE_NAME = "natation-6e-cycle-v25-20261025-r2";
 const APP_SHELL = [
   "./",
   "./index.html",

@@ -166,7 +166,7 @@ function drawEvaluationSummary(page,result,{x,y,width,font,bold,ink,lib,blank=fa
 export async function evaluationPDF({cl,students,config,fullName,blank=false}){
   const lib=await pdfWriter(),out=await lib.PDFDocument.create(),font=await textFont(out,'Helvetica'),bold=await textFont(out),ink=pdfColor(lib,'#153d56'),pupils=blank?[{name:'',rubricLevels:{}}]:students;
   const asset=config.source?.kind==='pdf'?await documentStore('get',config.source.key):null;
-  const embedded=asset?await out.embedPdf(asset.bytes):null;
+  const embedded=asset?await out.embedPdf(asset.bytes,asset.pages.map((_,index)=>index)):null;
   for(const p of pupils){
     const isAquatic=config.kind==='aquatic',result=evaluationSummary(p,{...cl,rubric:isAquatic?cl.rubric:config}),maximum=isAquatic?10:20,grade=blank?null:isAquatic?aquaticGrade(p,aquaticRubric(cl)):result.total,name=blank?'Nom Prénom : ........................................................':fullName(p.name);
     if(embedded){for(let index=0;index<embedded.length;index++){

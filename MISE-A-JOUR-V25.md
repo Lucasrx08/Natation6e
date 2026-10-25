@@ -38,6 +38,7 @@ Vérifications :
 
 - `qa/cycle-v25-model.mjs` : moyennes exactes, barèmes non linéaires, coefficients relatifs, deux parties sur 10 et total sur 20, absence de note si des données manquent, suivi sans effet sur les évaluations.
 - `qa/cycle-v25-regression.cjs` : 36 élèves sur quatre formats d’écran, cinq types de colonnes, matériel multiple, émoticône personnalisée, zéro numérique, rechargement, scores liés, exports Excel/PDF et attestation intégrée hors connexion.
+- `qa/cycle-v25-multipage.cjs` : import et impression d’une grille répartie sur deux pages, conservation des quatre critères et de toutes les pages pour chaque élève.
 - `qa/cycle-v25-legacy.cjs` : suivi existant, imports de grilles PDF/Excel, identifiants et niveaux conservés, modèles de diplômes personnels et AcroForms, impressions en lot, déplacements tactiles, apprentissage et fonctionnement hors connexion.
 
 Le PDF intégré a été comparé visuellement au modèle fourni. Un exemple à nom composé long et un lot de 34 attestations (68 pages) ont été contrôlés. Les fichiers de test utilisent uniquement des élèves fictifs. Les polices Poppins et leur licence OFL sont incluses pour que l’impression fonctionne sans connexion.
