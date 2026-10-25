@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import {defaultRubric} from '../cycle-model-v26.js';
+import {defaultAquaticRubric,aquaticGroups,aquaticGrade,aquaticRows} from '../aquatic-model-v26.js';
+import {demoRubric,evaluationSummary,evaluationSettings,evaluationRows,displayedLevel} from '../evaluation-v26.js';
+import {trackingColumns,trackingLabel,trackingRows} from '../tracking-model-v26.js';
+const rubric=defaultRubric(),aquatic=defaultAquaticRubric(),p={name:'FICTIF Camille',rubricLevels:Object.fromEntries(rubric.criteria.map(c=>[c.id,3])),aquaticLevels:Object.fromEntries(aquatic.criteria.map(c=>[c.id,3]))};
+let cl={rubric,aquaticRubric:aquatic,evaluationSettings:{demoMax:8,aquaticMax:12}};
+assert.deepEqual([evaluationSummary(p,cl).demo,evaluationSummary(p,cl).aquatic,evaluationSummary(p,cl).total],[6,9,15]);
+p.aquaticLevels['aq-outward']=2;p.aquaticLevels['aq-return']=3;p.aquaticLevels['aq-ring']=4;p.aquaticLevels['aq-upright']=2;p.aquaticLevels['aq-star']=4;
+assert.deepEqual(aquaticGroups(p,aquatic).map(g=>g.level),[3,3,3]);
+p.aquaticLevels['aq-star']=3;assert.equal(aquaticGroups(p,aquatic)[2].level,2.5);assert.equal(displayedLevel(2.5),3);assert.equal(evaluationSummary(p,cl).aquatic,8.5);
+p.aquaticLevels['aq-star']=undefined;assert.equal(evaluationSummary(p,cl).total,null);assert.equal(displayedLevel(null),null);
+p.aquaticLevels['aq-star']=4;cl.evaluationSettings={demoMax:10,aquaticMax:10};const summary=evaluationSummary(p,cl);assert.equal(summary.total,summary.demo+summary.aquatic);
+assert.equal(demoRubric({rubric:{...rubric,confirmed:false}}).confirmed,true);assert.equal(demoRubric({rubric:{...rubric,confirmed:false,source:{kind:'xlsx'}}}).confirmed,false);
+assert.deepEqual(evaluationSettings({evaluationSettings:{demoMax:-1,aquaticMax:Infinity}}),{demoMax:10,aquaticMax:10,total:20});
+cl.evaluationSettings={demoMax:8,aquaticMax:12};assert.equal(evaluationRows([p],cl,x=>x)[0]['Démonstration / 8'],6);assert.equal(aquaticRows([p],aquatic,x=>x,12)[0]['Parcours / 12'],9);
+const columns=[{id:'icons',type:'icons',label:'Matériel'},{id:'legacy',type:'equipment',label:'Ancien matériel'},{id:'number',type:'number',label:'Longueurs'}];cl.trackingColumns=columns;p.trackingValues={icons:'board',legacy:['noodle','pullbuoy'],number:0};assert.equal(trackingColumns(cl).length,3);assert.equal(trackingLabel('board',columns[0]),'Planche');assert.equal(trackingRows([p],cl,'2026-10-25',x=>x)[0].Longueurs,0);
+console.log('PASS adjustable point budgets, exact means, visual rounding without grade rounding, incomplete results, legacy preset and tracking IDs/zero');
