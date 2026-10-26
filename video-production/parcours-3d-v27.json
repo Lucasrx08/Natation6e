@@ -1,5 +1,5 @@
 {
-  "status": "awaiting_video_generator_connection",
+  "status": "deferred_by_user_2026-10-26",
   "format": "16:9",
   "target_duration_seconds": 108,
   "reference": {
@@ -151,5 +151,6 @@
     "holds": "15-second holds must use continuous natural motion, never frozen frames.",
     "grading": "Front/back swimming, turn and edge hold remain journey-only in the existing assessment.",
     "validation": "Review each complete take before publishing. Reject crossed arms in backward jump, flat-back impact, wrong directions, obstacle collisions and floor support."
-  }
+  },
+  "replacement": "media/parcours-aquatique-v28-4k.mp4"
 }

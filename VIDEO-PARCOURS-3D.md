@@ -1,6 +1,8 @@
 # Vidéo du parcours aquatique — brief de production 3D
 
-**État : séquences 3D à générer.** Le montage du nouveau film n’est pas encore produit. Le clip joint est une référence de rendu et de personnage ; son entrée bras croisés doit être corrigée dans la nouvelle animation.
+**Projet 3D mis de côté le 26 octobre 2026 à la demande de Lucas.** La V28 propose désormais une capsule entièrement refaite en animation vectorielle ; voir `MISE-A-JOUR-V28.md`. Le présent document est conservé comme référence de production 3D.
+
+**Ancien état : séquences 3D à générer.** Le montage du nouveau film n’est pas encore produit. Le clip joint est une référence de rendu et de personnage ; son entrée bras croisés doit être corrigée dans la nouvelle animation.
 
 ## Rendu et continuité
 

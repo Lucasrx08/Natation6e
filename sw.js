@@ -1,6 +1,7 @@
-const CACHE_NAME = "natation-6e-cycle-v27-20261025-r1";
+const CACHE_NAME = "natation-6e-video-v28-20261026-r1";
 const APP_SHELL = [
   "./grading-v27.js",
+  "./video-v28.css",
   "./assets/v26/board-3d.png",
   "./assets/v26/noodle-3d.png",
   "./assets/v26/belt-3d.png",
@@ -14,22 +15,22 @@ const APP_SHELL = [
   "./natation-swimmers.png",
   "./og.png",
   "./framework-DjPHiq1u.js",
-  "./index-cycle-v27.js",
+  "./index-cycle-v28.js",
   "./index-x_1aGchH.css",
   "./cycle-v27.css",
-  "./layout-cycle-v27.js",
-  "./natation-cycle-v27.js",
+  "./layout-cycle-v28.js",
+  "./natation-cycle-v28.js",
   "./workshops-v23.js",
   "./aquatic-model-v27.js",
-  "./aquatic-v27.js",
+  "./aquatic-v28.js",
   "./assets/v23/backward-jump.png",
   "./assets/v23/weighted-hoop.png",
   "./assets/v24/front-glide.png",
   "./assets/v24/back-glide.png",
-  "./media/parcours-aquatique-v24.mp4",
-  "./media/parcours-aquatique-v24.jpg",
-  "./media/parcours-aquatique-v24.vtt",
-  "./cycle-features-v27.js",
+  "./media/parcours-aquatique-v28.mp4",
+  "./media/parcours-aquatique-v28.png",
+  "./media/parcours-aquatique-v28.vtt",
+  "./cycle-features-v28.js",
   "./cycle-model-v27.js",
   "./tracking-model-v27.js",
   "./tracking-v27.js",
@@ -140,7 +141,7 @@ self.addEventListener("fetch", (event) => {
   if (url.origin !== self.location.origin) return;
 
   // Native video players issue Range requests when seeking, including offline.
-  if (url.pathname.endsWith("/media/parcours-aquatique-v24.mp4") && request.headers.has("range")) {
+  if (/\/media\/parcours-aquatique-v28(?:-4k)?\.mp4$/.test(url.pathname) && request.headers.has("range")) {
     event.respondWith((async () => {
       const cached = await caches.match(url.href);
       if (!cached) return fetch(request);
@@ -169,7 +170,7 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(request).then((cached) =>
       cached ?? fetch(request).then((response) => {
-        if (response.ok) {
+        if (response.ok && response.status !== 206) {
           const copy = response.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
         }
