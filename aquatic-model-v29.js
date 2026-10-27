@@ -1,0 +1,7 @@
+// Assessment levels are unchanged. Video chapters have their own shorter timing.
+import {AQUATIC_STEPS as prior} from './aquatic-model-v27.js';
+export * from './aquatic-model-v27.js';
+const times=[[3,8],[8,16],[16,21],[21,26],[26,31],[31,37],[37,42],[42,50],[50,61],[61,66]];
+const cues={return:'Je reprends sur le dos, je franchis le tapis OU le cerceau, puis je ressors en crawl.',ring:'Je nage en crawl, je réalise un plongeon canard pour récupérer l’anneau, puis je remonte et je repars en crawl.',anchor:'Je rejoins le bord en crawl et je m’y accroche avec les mains.'};
+export const AQUATIC_STEPS=prior.map((s,i)=>({...s,start:times[i][0],end:times[i][1],cue:cues[s.id]||s.cue,...(s.hold?{videoHold:5,hold:15}: {})}));
+export const AQUATIC_DURATION=69;
