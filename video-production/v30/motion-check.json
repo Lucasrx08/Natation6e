@@ -1,0 +1,32 @@
+{
+  "front": {
+    "minElbowFlexion": 26.778491593896007,
+    "maxElbowFlexion": 128.80538250941274,
+    "maxWristError": 2.220446049250313e-16
+  },
+  "back": {
+    "minElbowFlexion": 10.746670859789068,
+    "maxElbowFlexion": 93.03699087269624,
+    "maxWristError": 2.498001805406602e-16
+  },
+  "star": {
+    "minElbowFlexion": 10.746670859789475,
+    "maxElbowFlexion": 10.74667085978951,
+    "maxWristError": 2.7755575615628914e-17
+  },
+  "turn": {
+    "minElbowFlexion": 17.302059545564887,
+    "maxElbowFlexion": 97.62774517629259,
+    "maxWristError": 2.498001805406602e-16
+  },
+  "duck": {
+    "minElbowFlexion": 26.859954307836343,
+    "maxElbowFlexion": 26.85995430783643,
+    "maxWristError": 3.0531133177191805e-16
+  },
+  "immersion": {
+    "minElbowFlexion": 26.785837847883947,
+    "maxElbowFlexion": 117.93178254958542,
+    "maxWristError": 2.498001805406602e-16
+  }
+}
