@@ -1,8 +1,8 @@
-const CACHE_NAME = "natation-6e-video-v29-20261027-r1";
+const CACHE_NAME = "natation-6e-video-v31-20261028-r1";
 const APP_SHELL = [
-  "./aquatic-model-v29.js",
+  "./aquatic-model-v31.js",
   "./grading-v27.js",
-  "./video-v29.css",
+  "./video-v31.css",
   "./assets/v26/board-3d.png",
   "./assets/v26/noodle-3d.png",
   "./assets/v26/belt-3d.png",
@@ -16,22 +16,22 @@ const APP_SHELL = [
   "./natation-swimmers.png",
   "./og.png",
   "./framework-DjPHiq1u.js",
-  "./index-cycle-v29.js",
+  "./index-cycle-v31.js",
   "./index-x_1aGchH.css",
   "./cycle-v27.css",
-  "./layout-cycle-v29.js",
-  "./natation-cycle-v29.js",
+  "./layout-cycle-v31.js",
+  "./natation-cycle-v31.js",
   "./workshops-v23.js",
   "./aquatic-model-v27.js",
-  "./aquatic-v29.js",
+  "./aquatic-v31.js",
   "./assets/v23/backward-jump.png",
   "./assets/v23/weighted-hoop.png",
   "./assets/v24/front-glide.png",
   "./assets/v24/back-glide.png",
-  "./media/parcours-aquatique-v29.mp4",
-  "./media/parcours-aquatique-v29.png",
-  "./media/parcours-aquatique-v29.vtt",
-  "./cycle-features-v29.js",
+  "./media/parcours-aquatique-v31.mp4",
+  "./media/parcours-aquatique-v31.png",
+  "./media/parcours-aquatique-v31.vtt",
+  "./cycle-features-v31.js",
   "./cycle-model-v27.js",
   "./tracking-model-v27.js",
   "./tracking-v27.js",
@@ -142,7 +142,7 @@ self.addEventListener("fetch", (event) => {
   if (url.origin !== self.location.origin) return;
 
   // Native video players issue Range requests when seeking, including offline.
-  if (/\/media\/parcours-aquatique-v29(?:-4k)?\.mp4$/.test(url.pathname) && request.headers.has("range")) {
+  if (/\/media\/parcours-aquatique-v31(?:-4k)?\.mp4$/.test(url.pathname) && request.headers.has("range")) {
     event.respondWith((async () => {
       const cached = await caches.match(url.href);
       if (!cached) return fetch(request);
