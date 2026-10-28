@@ -12,7 +12,7 @@ const server=http.createServer((req,res)=>{
  current=true;await page.goto('http://localhost:8835/index.html');assert.equal(await page.locator('#legacy').innerText(),'Ancienne version');
  await page.goto('http://localhost:8835/actualiser-v32.html');await page.locator('.app-v32').waitFor({timeout:40000});assert.ok(page.url().includes('actualisation=v32-cachefix3'));
  assert.equal(await page.evaluate(()=>localStorage.getItem('cachefix:sentinel')),'classes-kept');const data=await page.evaluate(()=>JSON.parse(localStorage.getItem('natation-6e:data:v2')));assert.equal(data.classes[0].name,'6e Conservée');assert.equal(data.classes[0].students[0].id,'eleve');
- await page.waitForFunction(async()=>{const c=await caches.open('natation-6e-video-v32-20261028-r3'),r=await c.match(new URL('./index.html',location.href).href);return r&&(await r.text()).includes('v32-cachefix3')});
+ await page.waitForFunction(async()=>{const c=await caches.open('natation-6e-video-v32-20261028-r4'),r=await c.match(new URL('./index.html',location.href).href);return r&&(await r.text()).includes('v33-stable-start')});
  await ctx.setOffline(true);await page.reload();await page.locator('.app-v32').waitFor();assert.equal(await page.evaluate(()=>localStorage.getItem('cachefix:sentinel')),'classes-kept');
  console.log('PASS stale HTTP/SW cache -> recovery link -> current application, fresh offline entry and preserved class/pupil/localStorage');
  }finally{await b.close();server.close()}})().catch(e=>{console.error(e);process.exitCode=1;server.close()});
