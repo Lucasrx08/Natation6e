@@ -1,0 +1,18 @@
+const{chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs'),http=require('node:http'),path=require('node:path');
+const root=path.resolve(__dirname,'..');let current=false;const oldPage='<!doctype html><h1 id="legacy">Ancienne version</h1>',legacyWorker=`const C='natation-6e-old-fixture';self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(['./','./index.html'])));self.skipWaiting()});self.addEventListener('activate',e=>e.waitUntil(self.clients.claim()));self.addEventListener('fetch',e=>{if(e.request.method==='GET')e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)))})`;
+const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.mp4':'video/mp4','.vtt':'text/vtt','.png':'image/png','.svg':'image/svg+xml','.wasm':'application/wasm'};
+const server=http.createServer((req,res)=>{
+ const url=new URL(req.url,'http://localhost'),name=url.pathname==='/'?'/index.html':decodeURIComponent(url.pathname);
+ if(!current&&['/index.html','/sw.js'].includes(name)){res.writeHead(200,{'Content-Type':name.endsWith('.js')?'text/javascript':'text/html','Cache-Control':'public,max-age=31536000'});return res.end(name.endsWith('.js')?legacyWorker:oldPage)}
+ const file=path.resolve(root,'.'+name);if(!file.startsWith(root+path.sep)||!fs.existsSync(file)||!fs.statSync(file).isFile()){res.writeHead(404);return res.end()}
+ const size=fs.statSync(file).size;res.writeHead(200,{'Content-Type':mime[path.extname(file)]||'application/octet-stream','Content-Length':size,'Cache-Control':'public,max-age=600'});if(req.method==='HEAD')return res.end();fs.createReadStream(file).pipe(res);
+}).listen(8835);
+(async()=>{const b=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/tmp/chromium',args:['--no-sandbox']});try{
+ const ctx=await b.newContext();const page=await ctx.newPage();await page.goto('http://localhost:8835/');await page.evaluate(async()=>{localStorage.setItem('cachefix:sentinel','classes-kept');localStorage.setItem('natation-6e:data:v2',JSON.stringify({version:12,activeClassId:'cachetest',classes:[{id:'cachetest',name:'6e Conservée',students:[{id:'eleve',name:'FICTIF Camille',assessments:{}}]}]}));await navigator.serviceWorker.register('./sw.js');await navigator.serviceWorker.ready});await page.waitForFunction(()=>!!navigator.serviceWorker.controller);
+ current=true;await page.goto('http://localhost:8835/index.html');assert.equal(await page.locator('#legacy').innerText(),'Ancienne version');
+ await page.goto('http://localhost:8835/actualiser-v32.html');await page.locator('.app-v32').waitFor({timeout:40000});assert.ok(page.url().includes('actualisation=v32-cachefix3'));
+ assert.equal(await page.evaluate(()=>localStorage.getItem('cachefix:sentinel')),'classes-kept');const data=await page.evaluate(()=>JSON.parse(localStorage.getItem('natation-6e:data:v2')));assert.equal(data.classes[0].name,'6e Conservée');assert.equal(data.classes[0].students[0].id,'eleve');
+ await page.waitForFunction(async()=>{const c=await caches.open('natation-6e-video-v32-20261028-r3'),r=await c.match(new URL('./index.html',location.href).href);return r&&(await r.text()).includes('v32-cachefix3')});
+ await ctx.setOffline(true);await page.reload();await page.locator('.app-v32').waitFor();assert.equal(await page.evaluate(()=>localStorage.getItem('cachefix:sentinel')),'classes-kept');
+ console.log('PASS stale HTTP/SW cache -> recovery link -> current application, fresh offline entry and preserved class/pupil/localStorage');
+ }finally{await b.close();server.close()}})().catch(e=>{console.error(e);process.exitCode=1;server.close()});
