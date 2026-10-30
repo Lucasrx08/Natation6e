@@ -1,0 +1,9 @@
+/* Definite flex chain for Safari: percentage heights must not collapse the workspace. */
+.app-v33 .app-content{display:flex;flex-direction:column;flex:1 1 0px;min-height:0;min-width:0;height:auto!important}
+.app-v33 .app-content>.v21-class-workspace{flex:1 1 0px;height:auto;min-height:0;width:100%}
+.app-v33 .v26-rubric{flex:1 1 0px;min-height:0}
+.app-v33 .v26-rubric .v21-rubric-grid{flex:1 1 0px;min-height:0;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;grid-template-rows:31px!important;grid-auto-rows:minmax(76px,1fr)}
+.app-v33 .v26-rubric .v21-rubric-text{font-size:max(11px,var(--rubric-font));line-height:1.2}
+.app-v33 .v26-rubric .v21-rubric-level{overflow:auto}
+.app-v33 .v26-rubric .v21-rubric-heading{position:sticky;top:0;z-index:2;min-height:31px}
+@media(max-width:760px){.app-v33 .app-header{flex:0 0 88px}.app-v33 .v26-rubric .v21-rubric-grid{grid-auto-rows:minmax(100px,1fr)}.app-v33 .app-footer{height:auto;min-height:20px;gap:6px;font-size:8px}.app-v33 .app-footer>span:first-child{display:none}.app-v33 .app-footer>span:last-child{margin-left:auto;text-align:right}}

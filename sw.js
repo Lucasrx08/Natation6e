@@ -1,6 +1,6 @@
-const CACHE_NAME = "natation-6e-video-v32-20261030-r5";
+const CACHE_NAME = "natation-6e-video-v32-20261030-r6";
 const APP_SHELL = [
-  "./boot-v33.css",
+  "./boot-v33.css","./layout-v35.css",
   "./aquatic-model-v32.js",
   "./grading-v27.js",
   "./video-v32.css",
