@@ -1,0 +1,89 @@
+/* V37 — class-wide results, quick marking and two independent aquatic lanes. */
+.app-v37 .app-content{display:flex;flex-direction:column;min-height:0}
+.app-v37 .app-content>.v21-class-workspace{height:auto;flex:1 1 0px;min-height:0}
+.v37-follow{gap:5px}
+.v37-follow-tabs{display:flex;gap:5px;flex:none;background:#edf6fb;border-radius:10px;padding:3px}
+.v37-follow-tabs button{border:0;border-radius:8px;padding:7px 12px;background:transparent;color:#4d748a;font:750 12px Inter,system-ui,sans-serif;cursor:pointer}
+.v37-follow-tabs button[aria-selected=true]{color:#fff;background:#174967}
+.v37-grade-recap{gap:5px}
+.v37-grade-key{margin:0;color:#577a90;font-size:11px;flex:none}
+.v37-grade-boards{flex:1;min-height:0;display:grid;gap:10px;overflow:auto}
+.v37-grade-table{width:100%;table-layout:fixed;border-collapse:separate;border-spacing:0;align-self:start;border:1px solid #c9dfeb;border-radius:12px;overflow:hidden;color:#19445f}
+.v37-grade-table th,.v37-grade-table td{padding:2px 6px;border-right:1px solid #dce9ef;border-bottom:1px solid #dce9ef;text-align:center}
+.v37-grade-table thead th{height:31px;font-size:11px;background:#e4f3fb}
+.v37-grade-table th:first-child{text-align:left}
+.v37-grade-table tbody tr{height:var(--grade-row)}
+.v37-grade-table tbody td{font-size:15px;font-weight:700;font-variant-numeric:tabular-nums}
+.v37-grade-table tbody td:last-child{color:#0b7289;background:#e5f9fc}
+.v37-grade-table tbody tr:nth-child(even){background:#f4fafc}
+.v37-grade-table th:last-child,.v37-grade-table td:last-child{border-right:0}
+.v37-grade-name{display:block;line-height:1.1;overflow-wrap:anywhere}
+.v37-today-status{display:block;font-size:8px;color:#9b5b51;font-weight:500}
+.v37-pupil-picker{display:flex;align-items:center;gap:5px;min-width:0}
+.app-v37 .v37-pupil-picker select{width:clamp(130px,22vw,250px);max-width:35vw;flex:1;min-width:90px}
+.app-v37 .v37-pupil-picker .v21-action{min-width:34px;min-height:34px;padding:4px 10px}
+.v37-pupil-picker>small{white-space:nowrap;color:#64869a}
+.v37-pupil-dialog input{width:100%;padding:12px;border:1px solid #bad8e6;border-radius:12px;font:inherit}
+.v37-pupil-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:8px;margin-top:14px}
+.v37-pupil-tiles button{padding:14px 10px;min-height:52px;border:1px solid #c6dfeb;border-radius:12px;background:#f1f9fc;color:#163f59;font:750 14px Inter,system-ui,sans-serif;overflow-wrap:anywhere;cursor:pointer}
+.v37-pupil-tiles button[aria-pressed=true]{background:#d4f5ff;border:2px solid #1187ab}
+.app-v37 .v26-rubric .v21-pane-toolbar{height:auto;min-height:42px;flex-wrap:wrap;gap:8px}
+.app-v37 .v26-rubric .v21-rubric-grid{overflow:auto;grid-template-rows:31px!important;grid-auto-rows:minmax(66px,1fr)}
+.app-v37 .v26-rubric .v21-rubric-text{font-size:max(10px,var(--rubric-font));line-height:1.16}
+.app-v37 .v26-rubric .v21-rubric-level{overflow:auto}
+.app-v37 .v26-rubric .v21-rubric-heading{position:sticky;top:0;z-index:2}
+.app-v37 .v22-results-boards{overflow:auto}
+.app-v37 .v22-result-name{gap:0}
+.app-v37 .v22-result-name>strong{width:100%;line-height:1.08;display:flex;flex-direction:column;justify-content:center;overflow-wrap:anywhere}
+.app-v37 .v22-result-score{display:none}
+.v37-summary-given{font-weight:850}
+.v37-summary-surname{font-weight:600;font-size:.82em;color:#54758a}
+.app-v37 .v22-results-table thead th{white-space:normal}
+.app-v37 .v22-result-chip{font-size:8px}
+.app-v37 .group-name{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.15}
+.v37-aquatic-grid{display:grid;grid-template-rows:34px minmax(166px,1fr) minmax(166px,1fr) minmax(112px,.5fr);gap:6px;overflow:auto;--aq-red:#f87c94;--aq-orange:#f7c695;--aq-yellow:#ffe6a4;--aq-green:#c8e1b9}
+.v37-aquatic-tools{height:34px;min-height:34px;font-size:12px}
+.v37-aquatic-lane{display:grid;grid-template-rows:34px minmax(0,1fr);min-height:0;min-width:0;position:relative;border:1px solid #bbd8e6;border-radius:14px;overflow:hidden;background:#e9f7fb}
+.v37-aquatic-lane.active{border-color:#1485a1;box-shadow:inset 0 0 0 1px #1485a1}
+.v37-lane-toolbar{display:flex;align-items:center;gap:5px;padding:2px 7px;background:linear-gradient(115deg,#103751,#1b688b);color:#fff;min-width:0}
+.v37-lane-number{font-size:11px;white-space:nowrap;margin-right:3px}
+.v37-lane-toolbar select{height:29px;border:1px solid #b8d8e8;border-radius:8px;background:#f1faff;color:#153e59;flex:1 1 230px;max-width:360px;min-width:0;font:750 12px Inter,system-ui,sans-serif;padding:2px 6px}
+.app-v37 .v37-lane-toolbar .v21-action{min-height:28px;min-width:30px;padding:1px 8px;border-radius:8px;font-size:20px}
+.v37-lane-toolbar small{font-size:10px;white-space:nowrap;margin-left:auto}
+.v37-lane-toolbar output{white-space:nowrap;font:850 17px Inter,system-ui,sans-serif;min-width:75px;text-align:right}
+.v37-aquatic-lane .v23-aquatic-course{min-height:0;height:100%;border-radius:0;border:0;border-top:6px solid transparent;border-bottom:6px solid transparent}
+.v37-aquatic-lane .v23-course-step{gap:1px;min-height:0;width:17%;padding:0;max-width:none}
+.v37-aquatic-lane .v23-step-illustration{height:clamp(32px,4.5dvh,52px);width:70%;max-width:120px;border-width:2px;box-shadow:0 0 0 2px #ffffff36}
+.v37-aquatic-lane .v23-course-step strong{font-size:clamp(8px,.9vw,11px);line-height:1.05}
+.v37-aquatic-lane .v23-step-number,.v37-aquatic-lane .v23-step-level{width:20px;height:20px;font-size:10px;border-width:1px}
+.v37-aquatic-lane .v23-course-direction{font-size:8px;top:2px;left:5%}
+.v37-aquatic-lane .v23-course-direction.return{top:auto;bottom:1px}
+.v37-aquatic-lane .v23-turn-art{height:100%;width:100%}
+.v37-aquatic-lane .v23-course-step.selected .v23-step-illustration{box-shadow:0 0 0 2px #fff,0 0 0 4px #0c4b78}
+.v37-lane-detail{min-height:112px;overflow:auto}
+.v37-lane-detail .v23-detail-title>span{font-size:12px;line-height:1.15}
+.v37-lane-detail .v23-aquatic-levels>button{padding:5px 7px;min-height:70px}
+.v37-lane-detail .v23-aquatic-levels>button span{font-size:11px;line-height:1.18}
+.v37-lane-detail .v23-aquatic-levels>button strong{font-size:10px}
+.v37-empty-lane{position:absolute;bottom:5px;left:15px;right:15px;margin:0;padding:5px;border-radius:8px;background:#effaffeb;color:#365f78;text-align:center;font-size:11px}
+@media(max-width:760px){
+ .v37-follow-tabs button{font-size:10px;padding:6px 8px}
+ .app-v37 .v37-pupil-picker{flex:1;flex-wrap:wrap}
+ .app-v37 .v37-pupil-picker select{max-width:none;flex:1;width:130px}
+ .v37-pupil-picker>small{display:none}
+ .v37-aquatic-grid{grid-template-rows:34px minmax(190px,1fr) minmax(190px,1fr) minmax(150px,.6fr)}
+ .v37-lane-toolbar{gap:3px;padding-inline:4px}
+ .v37-lane-toolbar select{font-size:11px}
+ .v37-lane-toolbar output{min-width:58px;font-size:14px}
+ .v37-lane-toolbar small{display:none}
+ .v37-lane-number{font-size:9px}
+ .v37-lane-detail .v23-aquatic-levels{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .v37-grade-table thead th{font-size:9px}
+ .v37-grade-table tbody td{font-size:12px}
+}
+
+.app-v37 .v26-fraction{font-size:10px;right:4px;bottom:3px;padding:2px 4px}
+.app-v37 .v21-rubric-level:has(.v26-fraction){padding-bottom:18px}
+.v37-grade-table tbody th{position:relative}
+.v37-grade-table tbody th:has(.v37-today-status) .v37-grade-name{padding-bottom:8px}
+.v37-today-status{position:absolute;bottom:1px;left:6px;font-size:7px}

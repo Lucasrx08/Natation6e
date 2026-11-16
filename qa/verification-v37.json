@@ -1,0 +1,23 @@
+{
+  "model": {
+    "passed": true,
+    "scenarios": 4352,
+    "perfect": 20,
+    "attendance": true,
+    "parisMidnight": true,
+    "preservation": true,
+    "exports": true
+  },
+  "components": {
+    "passed": true,
+    "summaryPupils": 32,
+    "quickChoice": true,
+    "gradeRecap": 32,
+    "independentLanes": true,
+    "emptyRoster": true
+  },
+  "syntax": true,
+  "imports": 95,
+  "precache": true,
+  "visualBrowserAvailable": false
+}
