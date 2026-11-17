@@ -1,0 +1,65 @@
+globalThis.document={createElement:()=>({getContext:()=>({font:'',measureText:text=>({width:String(text).length*6})})})};
+const h=(type,props,...children)=>({type,props:props||{},children:children.flat(Infinity).filter(x=>x!==null&&x!==undefined&&x!==false)});
+const React={Fragment:'fragment',state:[],cursor:0,useState(initial){const at=this.cursor++;if(!(at in this.state))this.state[at]=typeof initial==='function'?initial():initial;return[this.state[at],next=>{this.state[at]=typeof next==='function'?next(this.state[at]):next}]}};
+React.useState=React.useState.bind(React);React.useRef=()=>({current:null});React.useEffect=()=>{};React.useLayoutEffect=()=>{};
+function render(Component,props,state){if(state)React.state=state;React.cursor=0;return Component(props)}
+function nodes(tree,predicate){const result=[];function walk(t){if(!t||typeof t!=='object')return;if(predicate(t))result.push(t);for(const c of t.children||[])walk(c)}walk(tree);return result}
+function textOf(t){return t&&typeof t==='object'?(t.children||[]).map(textOf).join(' '):String(t??'')}
+const assert=(condition,message)=>{if(!condition)throw Error(message)};
+const no=()=>{};
+
+const {createCycleFeatures}=await import('../cycle-features-v38.js');
+const {defaultAquaticRubric}=await import('../aquatic-base-v37.js');
+
+const students=Array.from({length:32},(_,i)=>({id:'s'+i,name:'FAMILLE '+i+' Prénom'+i,rubricLevels:{dive:4,balance:4,propulsion:4,breathing:4},aquaticLevels:Object.fromEntries(defaultAquaticRubric().criteria.map(c=>[c.id,4]))}));
+const cl={id:'class',name:'6e',students};
+const features=createCycleFeatures({React,el:h,updateSession:no,todayParis:()=> '2026-11-16',fullName:x=>x,splitName:name=>({surname:name.split(' ').slice(0,2).join(' '),givenName:name.split(' ').slice(2).join(' ')}),eligibleDiploma:()=>false,testStatus:()=> 'pending',readWorkbook:no});
+const props={cl,students,date:'2026-11-16',onDate:no,onClass:no,onUpdate:no,onOpen:no,onView:no,onMessage:no};
+let tree=render(features.ClassWorkspace,props,['rubric','s0']);
+const rubricNode=nodes(tree,n=>typeof n.type==='function'&&n.type.name==='RubricPanel')[0];
+assert(rubricNode.props.students.length===32,'Active demo roster');
+let selected='',rubric=render(rubricNode.type,{...rubricNode.props,onSelected:id=>selected=id},[]);
+const picker=nodes(rubric,n=>typeof n.type==='function'&&n.type.name==='PupilPicker')[0];
+let pickTree=render(picker.type,picker.props,[]);
+const next=nodes(pickTree,n=>n.props['aria-label']==='Élève suivant de la démonstration')[0];
+next.props.onClick();assert(selected==='s1','Fast next student updates selection');
+const prev=nodes(pickTree,n=>n.props['aria-label']==='Élève précédent de la démonstration')[0];assert(prev.props.disabled,'Previous disabled at first pupil');
+nodes(pickTree,n=>n.props['aria-label']==='Choisir rapidement un élève')[0].props.onClick();
+pickTree=render(picker.type,picker.props);
+assert(nodes(pickTree,n=>typeof n.type==='function'&&n.type.name==='Modal').length===1,'Quick pupil tile chooser opens');
+assert(nodes(pickTree,n=>n.type==='button'&&'aria-pressed' in n.props).length===32,'Every pupil in quick choice');
+tree=render(features.ClassWorkspace,props,['register','s0']);
+const register=nodes(tree,n=>typeof n.type==='function'&&n.type.name==='Register')[0];
+let follow=render(register.type,props,['grades']);
+const recap=nodes(follow,n=>typeof n.type==='function'&&n.type.name==='GradeRecap')[0];
+let notes=render(recap.type,recap.props,[{width:1100,height:620}]);
+assert(nodes(notes,n=>n.props['data-grade-student']).length===32,'All class grades displayed');
+assert(nodes(notes,n=>n.props['data-grade']==='total').every(n=>textOf(n)==='20'),'20/20 for every perfect pupil');
+const criteria=['entry','floating','backstroke','frontstroke','immersion'].map(id=>({id,short:id}));
+tree=render(features.ResultProfiles,{cl,students,criteria,criterionState:()=> 'pending',criterionLevel:()=>1,progress:()=>({mastered:0,competent:0,fragile:0,failed:0}),onRetest:no,onMessage:no},[{width:1100,height:620}]);
+assert(nodes(tree,n=>n.props['data-result-student']).length===32,'Summary includes every one of the 32 pupils');
+assert(nodes(tree,n=>n.props.className==='v37-summary-given').every(n=>textOf(n).startsWith('Prénom')),'Given names remain explicit in summary');
+const hidden={...students[1],attendance:{'2026-11-16':{status:'absent'}}};
+const roster=[students[0],hidden,{...students[2],attendance:{'2026-11-16':{status:'exempt'}}},students[3]];
+tree=render(features.ClassWorkspace,{...props,students:roster},['aquatic','s1','2026-11-16']);
+const aquatic=nodes(tree,n=>typeof n.type==='function'&&n.type.name==='AquaticPanel')[0];
+assert(aquatic.props.students.map(p=>p.id).join(',')==='s0,s3','Aquatic UI excludes absent and exempt');
+let updates=[];
+const aqProps={...aquatic.props,onUpdate:(id,updater)=>updates.push({id,value:updater(students.find(p=>p.id===id))}),onSelected:no};
+let aqTree=render(aquatic.type,aqProps,[['s0','s3'],0,['entry','entry'],null,false]);
+assert(nodes(aqTree,n=>n.props['data-aquatic-lane']).length===2,'Two aquatic lanes present');
+const first=nodes(aqTree,n=>n.props['data-aquatic-lane']===1)[0],second=nodes(aqTree,n=>n.props['data-aquatic-lane']===2)[0];
+assert(nodes(first,n=>n.props['data-aquatic-step']).length===10&&nodes(second,n=>n.props['data-aquatic-step']).length===10,'Ten steps in each lane');
+assert(nodes(first,n=>n.props['data-aquatic-step']).every(n=>n.props.style.gridColumn&&n.props.style.gridRow),'Every step has an explicit grid slot');
+assert(!nodes(aqTree,n=>typeof n.type==='function'&&n.type.name==='Modal').length,'No permanent cramped level panel');
+nodes(second,n=>n.props['data-aquatic-step']==='ring')[0].props.onClick();
+aqTree=render(aquatic.type,aqProps);
+const level2=nodes(aqTree,n=>typeof n.props['aria-label']==='string'&&n.props['aria-label'].includes('Récupération de l’anneau : niveau 2'))[0];
+assert(level2,'Ring levels address active second lane');assert(nodes(aqTree,n=>typeof n.type==='function'&&n.type.name==='Modal').length===1,'Touch opens the level dialog');level2.props.onClick();
+aqTree=render(aquatic.type,aqProps);assert(!nodes(aqTree,n=>typeof n.type==='function'&&n.type.name==='Modal').length,'Marking closes dialog for rapid assessment');
+assert(updates.length===1&&updates[0].id==='s3'&&updates[0].value.aquaticLevels['aq-ring']===2,'Assessment updates only second pupil');
+assert(updates[0].value.aquaticLevels['aq-entry']===4&&students[3].aquaticLevels['aq-ring']===4,'Other results and original student retained');
+const optionValues=nodes(second,n=>n.type==='option').map(n=>n.props.value);assert(!optionValues.includes('s0'),'Same pupil cannot occupy both lanes');
+aqTree=render(aquatic.type,{...aqProps,students:[]},[['s0','s3'],0,['entry','entry'],null,false]);
+assert(nodes(aqTree,n=>n.props['data-aquatic-step']).every(n=>n.props.disabled),'No eligible pupils disables marking');
+console.log('PASS V38 component logic: 32 pupils, quick marking, full grade recap, dated eligibility, independent aquatic lanes, safe empty roster.');
