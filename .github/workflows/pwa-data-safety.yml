@@ -1,0 +1,17 @@
+name: Vérification de la protection des données
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check natation-storage-guard-v1.js
+      - run: node --test tests/*.test.mjs
