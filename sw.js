@@ -1,5 +1,6 @@
-const CACHE_NAME = "natation-6e-video-v32-20261117-r11";
+const CACHE_NAME = "natation-6e-video-v32-20261123-r12";
 const APP_SHELL = [
+ "./summary-v41.css",
  "./apple-touch-icon-v40.png","./apple-touch-icon.png","./icon-192-v40.png","./icon-512-v40.png",
  "./cycle-v39.css",
  "./cycle-v38.css",
