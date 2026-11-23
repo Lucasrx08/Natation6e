@@ -1,5 +1,15 @@
-const CACHE_NAME = "natation-6e-video-v32-20261123-r12";
+const CACHE_NAME = "natation-6e-video-v32-20261123-r13";
 const APP_SHELL = [
+ "./management-v42.js",
+ "./management-v42.css",
+ "./cycle-model-v42.js",
+ "./tracking-model-v42.js",
+ "./tracking-v42.js",
+ "./cycle-features-v42.js",
+ "./natation-cycle-v42.js",
+ "./index-cycle-v42.js",
+ "./layout-cycle-v42.js",
+
  "./summary-v41.css",
  "./apple-touch-icon-v40.png","./apple-touch-icon.png","./icon-192-v40.png","./icon-512-v40.png",
  "./cycle-v39.css",
